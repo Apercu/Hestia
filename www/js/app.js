@@ -7,7 +7,8 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'timer', 'starter.controllers', 'starter.services'])
 
-.run(function($ionicPlatform) {
+.run(function($rootScope, $ionicPlatform) {
+
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -19,6 +20,11 @@ angular.module('starter', ['ionic', 'timer', 'starter.controllers', 'starter.ser
       StatusBar.styleDefault();
     }
   });
+
+  $rootScope.ui = {
+    number: 2
+  };
+
 })
 
 .config(function($stateProvider, $urlRouterProvider) {

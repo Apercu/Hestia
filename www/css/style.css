@@ -51,3 +51,21 @@
 button {
   transition: opacity 250ms ease-in-out;
 }
+
+.legend {
+  float: left;
+  margin-right: 20px;
+  width: 20px;
+  height: 20px;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 4px;
+}
+
+.assertive-bg.occuped {
+  opacity: 0.6;
+}
+
+.item-avatar div {
+  line-height: 38px;
+}

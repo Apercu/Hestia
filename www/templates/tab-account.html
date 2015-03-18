@@ -1,18 +1,22 @@
 <ion-view view-title="Paramètres">
   <ion-content>
     <ion-list>
-    <ion-toggle  ng-model="settings.pause">
-      Pause
-    </ion-toggle>
+      <ion-toggle  ng-model="settings.pause">
+        Pause
+      </ion-toggle>
+    </ion-list>
+
+    <button class="button button-full button-dark">
+      <i class="ion-power"></i> Déconnexion
+    </button>
 
     <br>
     <br>
     <br>
 
-    <button ng-click="showAlert()" class="button button-block button-assertive">
+    <button ng-click="showAlert()" class="button button-full button-assertive">
       <i class="ion-android-warning"></i> Signaler un comportement indésirable
     </button>
 
-    </ion-list>
   </ion-content>
 </ion-view>

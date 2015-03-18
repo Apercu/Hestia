@@ -56,7 +56,7 @@ angular.module('starter.controllers', [])
     $ionicPopup.confirm({
       title: 'Signaler un comportement',
       template: 'Êtes-vous sûr(e) ?',
-      buttons: [{ text: 'Annuler' }, { text: '<b>Save</b>', type:'button-positive', onTap: function () { return true; } }]
+      buttons: [{ text: 'Annuler' }, { text: '<b>Confirmer</b>', type:'button-positive', onTap: function () { return true; } }]
     }).then(function (res) {
       if (res) {
         $ionicPopup.alert({
