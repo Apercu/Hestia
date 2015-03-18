@@ -1,0 +1,23 @@
+<!--
+  This template loads for the 'tab.friend-detail' state (app.js)
+  'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
+  The FriendsCtrl pulls data from the Friends service (service.js)
+  The Friends service returns an array of friend data
+-->
+<ion-view view-title="{{ vm.room }}">
+  <ion-content class="padding">
+
+  <div class="card timer-card">
+    <div class="item">
+      <timer ng-show="vm.start" autostart="false" interval="1000">{{ mminutes }}:{{ sseconds }}</timer>
+      <fake>--:--</fake>
+    </div>
+  </div>
+
+  <button ng-click="startCountdown()" class="button button-block button-balanced button-start">
+    <i class="ion-ios-color-wand-outline"></i>
+    Commencer le nettoyage
+  </button>
+
+  </ion-content>
+</ion-view>

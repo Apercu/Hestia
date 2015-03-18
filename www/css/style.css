@@ -1,0 +1,53 @@
+.col-room {
+  padding: 5px;
+  width: 100%;
+  border-radius: 2px;
+  text-align: center;
+  color: white;
+}
+
+.col-room.occuped {
+  opacity: 0.6;
+}
+
+.col a {
+  text-decoration: none;
+}
+
+.hr {
+  width: 80%;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  margin: 10px auto;
+}
+
+.timer-card {
+  text-align: center;
+  padding: 50px;
+  overflow: hidden;
+  position: relative;
+  height: 160px;
+  min-height: 160px;
+}
+
+.timer-card .item {
+  height: 50px;
+}
+
+.timer-card span,
+.timer-card fake {
+  font-size: 40px;
+  position: absolute;
+  left:0;
+  right:0;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.timer-card fake {
+
+}
+
+.button-start {
+  opacity: 1;
+}
