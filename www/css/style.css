@@ -48,6 +48,6 @@
 
 }
 
-.button-start {
-  opacity: 1;
+button {
+  transition: opacity 250ms ease-in-out;
 }

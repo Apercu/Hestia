@@ -14,10 +14,19 @@
     </div>
   </div>
 
-  <button ng-click="startCountdown()" class="button button-block button-balanced button-start">
-    <i class="ion-ios-color-wand-outline"></i>
-    Commencer le nettoyage
-  </button>
+  <div class="button-bar">
+    <button ng-disabled="vm.start" ng-click="startCountdown()" class="button button-block button-balanced button-start">
+      <i class="ion-ios-color-wand-outline"></i>
+      Commencer
+    </button>
+
+    <button ng-disabled="!vm.start || vm.finish" ng-click="finishCountdown()" class="button button-block button-positive">
+      <i class="ion-checkmark"></i>
+      Terminé
+    </button>
+  </div>
+
+  <div class="hr"></div>
 
   </ion-content>
 </ion-view>

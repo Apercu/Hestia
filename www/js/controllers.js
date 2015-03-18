@@ -20,7 +20,9 @@ angular.module('starter.controllers', [])
   };
 
   $scope.startCountdown = function () {
+
     $scope.vm.start = true;
+    $scope.vm.finish = false;
     $scope.$broadcast('timer-start');
 
     var timer = $('timer');
@@ -28,26 +30,42 @@ angular.module('starter.controllers', [])
     var button = $('.button-start');
 
     var t = new TimelineMax({});
-    var x = window.innerWidth || document.documentElement.clientWidth || -1000;
 
     var tw1 = new TweenMax.to(fake, 2, { marginTop: 200, opacity: 0 });
+    var tw2 = new TweenMax.fromTo(timer, 2, { marginTop: 200, opacity: 0 }, { marginTop: 0, opacity: 1 });
 
-    var tw3 = new TweenMax.to(button, .5, { opacity: 0 });
+  };
 
-    var tw2 = new TweenMax.from(timer, 2, { marginTop: 200, opacity: 0 })
-      .to(timer, 0, { marginTop: 0, opacity: 1 });
+  $scope.finishCountdown = function () {
+    $scope.$broadcast('timer-stop');
+    $scope.vm.finish = true;
+  };
 
-    t.add(tw1).add(tw2).add(tw3);
-
-  }
 })
 
 .controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
   $scope.chat = Chats.get($stateParams.chatId);
 })
 
-.controller('AccountCtrl', function($scope) {
+.controller('AccountCtrl', function($scope, $ionicPopup) {
   $scope.settings = {
     enableFriends: true
   };
+
+  $scope.showAlert = function () {
+    $ionicPopup.confirm({
+      title: 'Signaler un comportement',
+      template: 'Êtes-vous sûr(e) ?',
+      buttons: [{ text: 'Annuler' }, { text: '<b>Save</b>', type:'button-positive', onTap: function () { return true; } }]
+    }).then(function (res) {
+      if (res) {
+        $ionicPopup.alert({
+           title: 'Signalement',
+          template: 'Un agent a été alerté.'
+        });
+      }
+    });
+
+  }
+
 });
