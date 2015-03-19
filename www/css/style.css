@@ -6,6 +6,10 @@
   color: white;
 }
 
+.col-room + .col-room {
+  margin-left: 5px;
+}
+
 .col-room-anim {
   transition: background-color 1000ms ease-in-out;
 }

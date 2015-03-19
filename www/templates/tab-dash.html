@@ -9,6 +9,21 @@
       </div>
     </ion-item>
 
+    <div class="list card">
+      <div class="item item-divider">Itinéraire conseillé</div>
+
+      <div class="item item-body">
+        <div class="row">
+          <div class="col col-room dark-bg dark-border text-center" ng-if="!ui.finishedRoom">104</div>
+          <div class="col col-room dark-bg dark-border text-center">105</div>
+          <div class="col col-room dark-bg dark-border text-center">301</div>
+          <div class="col col-room dark-bg dark-border text-center">302</div>
+          <div class="col col-room dark-bg dark-border text-center" ng-if="ui.finishedRoom">303</div>
+        </div>
+      </div>
+
+    </div>
+
     <div class="list card" ng-show="ui.number > 0">
       <div class="item item-divider">Messages</div>
 
