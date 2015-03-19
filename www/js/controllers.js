@@ -3,11 +3,32 @@ angular.module('starter.controllers', [])
 .controller('DashCtrl', function ($rootScope, $scope) {
 
   $scope.fakeNotif = function () {
-    $rootScope.ui.number = 3;
+    $rootScope.ui.number++;
+    $rootScope.ui.faked = true;
 
-    TweenMax.fromTo($('.item-new-msg'), 2,
-      { ease: Power2.easeInOut, opacity: 0, height: 0 },
-      { opacity: 1, height: 100 });
+    var el = $('.item-new-msg');
+    var badge = $('.badge');
+    var t = new TimelineMax();
+
+    t
+      .set(el, { scaleY: 0 })
+      .to(el, .25, { scaleY: 1 })
+      .to(badge, .25, { scale: 1.2 })
+      .to(badge, .25, { scale: 1.0 })
+      .to(badge, .25, { scale: 1.2 })
+      .to(badge, .25, { scale: 1.0 })
+
+  }
+
+  $scope.closeAlert = function (num) {
+    var el = $('.item-msg-' + num);
+    var t = new TimelineMax();
+
+    t
+      .set(el, { scaleY: 1 })
+      .to(el, .25, { scaleY: 0, height: 0, padding: 0 });
+
+    $rootScope.ui.number--;
   }
 
 })
@@ -61,13 +82,13 @@ angular.module('starter.controllers', [])
 
     var t = new TimelineMax({});
 
-    var tw1 = new TweenMax.to($('.report-before'), 1, { opacity: 0, marginTop: -100 });
-    var tw2 = new TweenMax.to($('.report-after'), 1, { opacity: 1, marginTop: 55 });
+    var tw1 = new TweenMax.to($('.report-before'), 1, { opacity: 0, y: -100 });
+    var tw2 = new TweenMax.to($('.report-after'), .5, { opacity: 1, y: -41 });
 
     $scope.vm.ck1 = false;
     $scope.vm.ck2 = false;
     $scope.vm.ck3 = false;
-    $rootScope.vm.finishedRoom = false;
+    $rootScope.ui.finishedRoom = false;
 
   };
 

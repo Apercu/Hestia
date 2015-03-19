@@ -75,6 +75,19 @@ button {
   max-height: 47px;
 }
 
-.item-new-msg {
-  height: 0;
+.item-msg {
+  transform-origin: top center;
+}
+
+.item-msg .col-center {
+  text-align: right;
+}
+
+.list.card.ng-hide {
+  transition: all 250ms ease-in-out;
+  opacity: 0;
+}
+
+.list.card.ng-hide-remove {
+  opacity: 1;
 }

@@ -9,24 +9,33 @@
       </div>
     </ion-item>
 
-    <div class="list card">
+    <div class="list card" ng-show="ui.number > 0">
       <div class="item item-divider">Messages</div>
 
-      <div class="item item-body">
-        <div>
+      <div class="item item-body item-msg item-msg-1 row" ng-click="closeAlert(1)">
+        <div class="col col-90">
           Merci de faire attention à la chambre 404, <b>client VIP</b>.
         </div>
-      </div>
-
-      <div class="item item-body">
-        <div>
-          Attention ! Le client Choubert de la 301 est allergique au coton.
+        <div class="col col-center">
+          <i class="ion-close"></i>
         </div>
       </div>
 
-      <div class="item item-body item-new-msg" ng-show="ui.number === 3">
-        <div>
+      <div class="item item-body item-msg item-msg-2 row" ng-click="closeAlert(2)">
+        <div class="col col-90">
+          Attention ! Le client Choubert de la 301 est allergique au coton.
+        </div>
+        <div class="col col-center">
+          <i class="ion-close"></i>
+        </div>
+      </div>
+
+      <div class="item item-body item-msg item-new-msg item-msg-3 row" ng-show="ui.faked" ng-click="closeAlert(3)">
+        <div class="col col-90">
           Mme Durand, veuillez passer au bureau de votre superviseur dans les plus brefs délais.
+        </div>
+        <div class="col col-center">
+          <i class="ion-close"></i>
         </div>
       </div>
 
