@@ -4,7 +4,7 @@
   The FriendsCtrl pulls data from the Friends service (service.js)
   The Friends service returns an array of friend data
 -->
-<ion-view view-title="{{ vm.room }}">
+<ion-view view-title="Chambre {{ vm.room }}">
   <ion-content class="padding">
 
   <div class="card timer-card">
@@ -15,7 +15,7 @@
   </div>
 
   <div class="button-bar">
-    <button ng-disabled="vm.start" ng-click="startCountdown()" class="button button-block button-balanced button-start">
+    <button ng-disabled="vm.start || vm.room !== '104'" ng-click="startCountdown()" class="button button-block button-balanced button-start">
       <i class="ion-ios-color-wand-outline"></i>
       Commencer
     </button>
@@ -34,31 +34,36 @@
 
       <li class="item item-checkbox">
          <label class="checkbox">
-           <input type="checkbox">
+           <input type="checkbox" ng-model="vm.ck1" ng-disabled="vm.reported">
          </label>
          Mini-bar vide
       </li>
 
       <li class="item item-checkbox">
          <label class="checkbox">
-           <input type="checkbox">
+           <input type="checkbox" ng-model="vm.ck2" ng-disabled="vm.reported">
          </label>
          Télévision HS
       </li>
 
       <li class="item item-checkbox">
          <label class="checkbox">
-           <input type="checkbox">
+           <input type="checkbox" ng-model="vm.ck3" ng-disabled="vm.reported">
          </label>
          Problème de plomberie
       </li>
 
     </ul>
 
-    <button ng-click="alert" class="button button-block button-energized">
-      <i class="ion-speakerphone"></i>
-      <span>Rapport</span>
-      <span>Merci</span>
+    <button ng-disabled="!vm.ck1 && !vm.ck2 && !vm.ck3" ng-click="report()" class="button button-block button-energized">
+      <div class="report-before">
+        <i class="ion-speakerphone"></i>
+        <span>Rapport</span>
+      </div>
+      <div ng-show="vm.reported" class="report-after">
+        <i class="ion-checkmark"></i>
+        <span>Envoyé</span>
+      </div>
     </button>
 
   </div>

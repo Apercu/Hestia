@@ -3,23 +3,34 @@
     <ion-item class="item-remove-animate item-avatar">
       <img ng-src="http://api.randomuser.me/portraits/thumb/women/55.jpg">
       <div>
-        <span>
+        <span ng-click="fakeNotif()">
           Bienvenue, Carole Durand
         </span>
       </div>
     </ion-item>
+
     <div class="list card">
       <div class="item item-divider">Messages</div>
+
       <div class="item item-body">
         <div>
-          Veuillez faire attention a la chambre 404, <b>client VIP</b>.
+          Merci de faire attention à la chambre 404, <b>client VIP</b>.
         </div>
       </div>
+
       <div class="item item-body">
         <div>
-          Attention ! Le client Choubert est allergique au coton.
+          Attention ! Le client Choubert de la 301 est allergique au coton.
         </div>
       </div>
+
+      <div class="item item-body item-new-msg" ng-show="ui.number === 3">
+        <div>
+          Mme Durand, veuillez passer au bureau de votre superviseur dans les plus brefs délais.
+        </div>
+      </div>
+
     </div>
+
   </ion-content>
 </ion-view>

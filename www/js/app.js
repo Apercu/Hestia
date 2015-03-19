@@ -22,7 +22,8 @@ angular.module('starter', ['ionic', 'timer', 'starter.controllers', 'starter.ser
   });
 
   $rootScope.ui = {
-    number: 2
+    number: 2,
+    finishedRoom: false
   };
 
 })
@@ -39,7 +40,8 @@ angular.module('starter', ['ionic', 'timer', 'starter.controllers', 'starter.ser
     .state('tab', {
     url: '/tab',
     abstract: true,
-    templateUrl: 'templates/tabs.html'
+    templateUrl: 'templates/tabs.html',
+    controller: 'TabsCtrl'
   })
 
   // Each tab has its own nav history stack:

@@ -6,6 +6,10 @@
   color: white;
 }
 
+.col-room-anim {
+  transition: background-color 1000ms ease-in-out;
+}
+
 .col-room.occuped {
   opacity: 0.6;
 }
@@ -44,10 +48,6 @@
   margin-right:auto;
 }
 
-.timer-card fake {
-
-}
-
 button {
   transition: opacity 250ms ease-in-out;
 }
@@ -68,4 +68,13 @@ button {
 
 .item-avatar div {
   line-height: 38px;
+}
+
+.button-energized {
+  overflow: hidden;
+  max-height: 47px;
+}
+
+.item-new-msg {
+  height: 0;
 }

@@ -1,22 +1,36 @@
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope) {})
+.controller('DashCtrl', function ($rootScope, $scope) {
 
-.controller('ChatsCtrl', function($scope, Chats) {
+  $scope.fakeNotif = function () {
+    $rootScope.ui.number = 3;
+
+    TweenMax.fromTo($('.item-new-msg'), 2,
+      { ease: Power2.easeInOut, opacity: 0, height: 0 },
+      { opacity: 1, height: 100 });
+  }
+
+})
+
+.controller('ChatsCtrl', function ($scope, Chats) {
   $scope.chats = Chats.all();
   $scope.remove = function(chat) {
     Chats.remove(chat);
   }
 })
 
-.controller('RoomsCtrl', function () {
+.controller('RoomsCtrl', function ($scope) {
 })
 
-.controller('RoomDetailCtrl', function ($scope, $stateParams) {
+.controller('TabsCtrl', function ($scope) {
+})
+
+.controller('RoomDetailCtrl', function ($scope, $stateParams, $rootScope) {
 
   $scope.vm = {
     start: false,
-    room: 'Chambre ' + $stateParams.roomId
+    reported: false,
+    room: $stateParams.roomId
   };
 
   $scope.startCountdown = function () {
@@ -39,6 +53,22 @@ angular.module('starter.controllers', [])
   $scope.finishCountdown = function () {
     $scope.$broadcast('timer-stop');
     $scope.vm.finish = true;
+    $rootScope.ui.finishedRoom = true;
+  };
+
+  $scope.report = function () {
+    $scope.vm.reported = true;
+
+    var t = new TimelineMax({});
+
+    var tw1 = new TweenMax.to($('.report-before'), 1, { opacity: 0, marginTop: -100 });
+    var tw2 = new TweenMax.to($('.report-after'), 1, { opacity: 1, marginTop: 55 });
+
+    $scope.vm.ck1 = false;
+    $scope.vm.ck2 = false;
+    $scope.vm.ck3 = false;
+    $rootScope.vm.finishedRoom = false;
+
   };
 
 })
@@ -54,13 +84,13 @@ angular.module('starter.controllers', [])
 
   $scope.showAlert = function () {
     $ionicPopup.confirm({
-      title: 'Signaler un comportement',
+      title: 'Signalement',
       template: 'Êtes-vous sûr(e) ?',
       buttons: [{ text: 'Annuler' }, { text: '<b>Confirmer</b>', type:'button-positive', onTap: function () { return true; } }]
     }).then(function (res) {
       if (res) {
         $ionicPopup.alert({
-           title: 'Signalement',
+           title: 'Confirmation',
           template: 'Un agent a été alerté.'
         });
       }
