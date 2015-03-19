@@ -83,10 +83,6 @@ button {
   transform-origin: top center;
 }
 
-.item-msg .col-center {
-  text-align: right;
-}
-
 .list.card.ng-hide {
   transition: all 250ms ease-in-out;
   opacity: 0;
@@ -94,4 +90,8 @@ button {
 
 .list.card.ng-hide-remove {
   opacity: 1;
+}
+
+.row-specs {
+  font-size: 12px;
 }

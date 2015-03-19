@@ -1,7 +1,7 @@
 <ion-view view-title="Hestia">
   <ion-content class="padding">
     <ion-item class="item-remove-animate item-avatar">
-      <img ng-src="http://api.randomuser.me/portraits/thumb/women/55.jpg">
+      <img ng-src="http://api.randomuser.me/portraits/thumb/women/55.jpg" ng-click="fakeNotif2()">
       <div>
         <span ng-click="fakeNotif()">
           Bienvenue, Carole Durand
@@ -28,28 +28,49 @@
       <div class="item item-divider">Messages</div>
 
       <div class="item item-body item-msg item-msg-1 row" ng-click="closeAlert(1)">
-        <div class="col col-90">
+        <div class="col col-10 col-center">
+          <i class="ion-android-alert"></i>
+        </div>
+        <div class="col col-80">
           Merci de faire attention à la chambre 404, <b>client VIP</b>.
         </div>
-        <div class="col col-center">
+        <div class="col col-center text-right">
           <i class="ion-close"></i>
         </div>
       </div>
 
       <div class="item item-body item-msg item-msg-2 row" ng-click="closeAlert(2)">
-        <div class="col col-90">
+        <div class="col col-10 col-center">
+          <i class="ion-android-alert"></i>
+        </div>
+        <div class="col col-80">
           Attention ! Le client Choubert de la 301 est allergique au coton.
         </div>
-        <div class="col col-center">
+        <div class="col col-center text-right">
           <i class="ion-close"></i>
         </div>
       </div>
 
       <div class="item item-body item-msg item-new-msg item-msg-3 row" ng-show="ui.faked" ng-click="closeAlert(3)">
-        <div class="col col-90">
+        <div class="col col-10 col-center">
+          <i class="ion-android-textsms"></i>
+        </div>
+        <div class="col col-80">
           Mme Durand, veuillez passer au bureau de votre superviseur dans les plus brefs délais.
         </div>
-        <div class="col col-center">
+        <div class="col col-center text-right">
+          <i class="ion-close"></i>
+        </div>
+      </div>
+
+      <div class="item item-body item-msg item-new-msg item-msg-4 row" ng-show="ui.faked2" ng-click="closeAlert(4)">
+        <div class="col col-10 col-center">
+          <i class="ion-calendar"></i>
+        </div>
+        <div class="col col-80">
+          La chambre 303 vient de vous être assignée.
+        </div>
+        <div class="col col-center text-right">
           <i class="ion-close"></i>
         </div>
       </div>

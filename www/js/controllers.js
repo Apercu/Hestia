@@ -2,11 +2,9 @@ angular.module('starter.controllers', [])
 
 .controller('DashCtrl', function ($rootScope, $scope) {
 
-  $scope.fakeNotif = function () {
-    $rootScope.ui.number++;
-    $rootScope.ui.faked = true;
+  function badgeAnim (num) {
 
-    var el = $('.item-new-msg');
+    var el = $('.item-new-msg.item-msg-' + num);
     var badge = $('.badge');
     var t = new TimelineMax();
 
@@ -17,8 +15,19 @@ angular.module('starter.controllers', [])
       .to(badge, .25, { scale: 1.0 })
       .to(badge, .25, { scale: 1.2 })
       .to(badge, .25, { scale: 1.0 })
-
   }
+
+  $scope.fakeNotif = function () {
+    $rootScope.ui.number++;
+    $rootScope.ui.faked = true;
+    badgeAnim(3);
+  }
+
+  $scope.fakeNotif2 = function () {
+    $rootScope.ui.number++;
+    $rootScope.ui.faked2 = true;
+    badgeAnim(4);
+  };
 
   $scope.closeAlert = function (num) {
     var el = $('.item-msg-' + num);
@@ -53,6 +62,8 @@ angular.module('starter.controllers', [])
     reported: false,
     room: $stateParams.roomId
   };
+
+  $scope.random = Math.floor(Math.random() * 2) + 1;
 
   $scope.startCountdown = function () {
 
