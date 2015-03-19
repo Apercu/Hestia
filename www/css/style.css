@@ -42,6 +42,9 @@
   height: 50px;
 }
 
+.badge {
+}
+
 .timer-card span,
 .timer-card fake {
   font-size: 40px;
